@@ -5,18 +5,18 @@ Repository of data and code to use the models described in the paper "Citation N
 The repository provides data and models to score sentences according to their "citation need", i.e. whether an inline citation is needed to support the information in the sentence. Models are implemented in Keras.
 
 #### Using Citation Need Models
-The *test_citation_need_model.py* script takes as input a text file containing statements to be classified, and gives as ouput a "citation need" score of reach sentence.
+The *run_citation_need_model.py* script takes as input a text file containing statements to be classified, and gives as ouput a "citation need" score of reach sentence.
 
 To run the script, you can use the following command:
 ```
-python test_citation_need_model.py -i input_file.txt  -m models/model.h5 -v dicts/word_dict.pck -s dicts/section_dict.pck -o output_folder -l it
+python run_citation_need_model.py -i input_file.txt  -m models/model.h5 -v dicts/word_dict.pck -s dicts/section_dict.pck -o output_folder -l it
 ```
 
 Where:
 - **'-i', '--input'**, is the input .csv file from which we read the statements. Tab-separated columns should contain at least the following tab-separated values (and the corresponding header): 
   - "statement", i.e. the text of the sentence to be classified
   - "section", i.e. the section title where the sentence is located
-  - "citation", the binary label corresponding to whether the sentence has a citation or not in the original text. This can be set to 0 if no evaluation is needed. 
+  - "citations", the binary label corresponding to whether the sentence has a citation or not in the original text. This can be set to False if no evaluation is needed. 
 An example input file is provided in *test_input_data_sample.txt*
 
 - **'-o', '--out_dir'**, is the output directory where we store the results
